@@ -1,7 +1,7 @@
-# ScrollerRuler
+ScrollerRuler
 -------------
 
-自定义View_滑动刻度尺，该项目是Hencoder的模仿项目
+自定义View_滑动刻度尺，该项目是HenCoder的模仿项目
 
 ### 示例:  
 把使用了该项目的案例放在这里。可以放APK下载链接，或者简单放几张截图。  

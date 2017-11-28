@@ -17,7 +17,8 @@ import android.widget.OverScroller
  * 作者：Tuo on 2017/11/26 10:14
  * 邮箱：839539179@qq.com
  */
-class RulerView : View {
+class RulerView @JvmOverloads constructor(context: Context, attributeSet: AttributeSet? = null, defStyleAttr: Int = 0)
+    : View(context, attributeSet, defStyleAttr) {
 
 
     // 实现惯性滑动
@@ -68,10 +69,6 @@ class RulerView : View {
 
     private var mMidValue: Float = 0f
 
-    @JvmOverloads constructor(context: Context) : this(context, null)
-    @JvmOverloads constructor(context: Context, attributeSet: AttributeSet?) : this(context, attributeSet, 0)
-    @JvmOverloads constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
-
 
     init {
         mVelocityTracker = VelocityTracker.obtain()
@@ -83,7 +80,6 @@ class RulerView : View {
         mCount = ((mMaxValue - mMinValue) / mSpaceNumber).toInt()
 
         mContentLength = mCount * mSpaceWidth
-
 
 
     }
@@ -207,7 +203,7 @@ class RulerView : View {
                     invalidate()
                 } else {
                     val sx = Math.round(scrollX / mSpaceWidth) * mSpaceWidth
-                    Log.i("sx_x","${Math.round(scrollX / mSpaceWidth)}"+"   "+"$scrollX")
+                    Log.i("sx_x", "${Math.round(scrollX / mSpaceWidth)}" + "   " + "$scrollX")
                     mOverScroller.startScroll(scrollX, 0, (sx - scrollX).toInt(), 0, 1000)
                     invalidate()
                 }
